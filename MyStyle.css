@@ -1,0 +1,133 @@
+body {
+    background-color: hsl(275, 100%, 97%);
+    font-family: "Work Sans", system-ui;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    /* Constrain max width on large screens */
+    margin: 50px auto;
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bg {
+    background-image: url('./pics/background-pattern-desktop.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    z-index: -1;
+}
+
+.question {
+    display: flex;
+    padding-right: 15px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    align-items: center;
+}
+
+.container .question:hover {
+    color: hsl(293, 60%, 41%) !important;
+}
+
+p {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s;
+}
+
+p.expanded {
+    max-height: 200px;
+    opacity: 1;
+    visibility: visible;
+    padding: 5px;
+    border-bottom: 0.1px solid black;
+}
+
+.plus, .minus {
+    position: absolute;
+    right: 2%;
+    scale: 0.9;
+    transition: visibility 0.5s ease-in-out;
+}
+
+.minus {
+    visibility: hidden;
+}
+
+.star {
+    position: relative;
+    top: 10px;
+    scale: 0.9;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 375px) {
+    .container {
+        padding: 15px;
+        width: 100%;
+        margin: 20px auto;
+    }
+
+    .question {
+        font-size: 1rem;
+        padding-right: 10px;
+    }
+
+    p.expanded {
+        padding: 4px;
+        max-height: 150px;
+    }
+
+    .plus, .minus {
+        right: 5%;
+        scale: 0.8;
+    }
+}
+
+@media (min-width: 1440px) {
+    .container {
+        max-width: 800px;
+        /* Wider for larger screens */
+        padding: 25px;
+    }
+
+    .question {
+        font-size: 1.2rem;
+        padding-right: 20px;
+    }
+
+    p.expanded {
+        padding: 10px;
+        max-height: 250px;
+    }
+
+    .plus, .minus {
+        right: 3%;
+        scale: 1;
+    }
+}
